@@ -5,13 +5,10 @@ require 'ignore_get_content_type/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "ignore_get_content_type"
-  spec.version       = IgnoreGetContentType::VERSION
+  spec.version       = Rack::IgnoreGetContentTypeVersion::VERSION
   spec.authors       = ["Connor Savage"]
   spec.email         = ["csavage@mdsol.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
-  spec.license       = "MIT"
+  spec.summary       = %q{A short piece of middleware to ignore content type set on GET requests}
 
   spec.files         = `git ls-files -z`.split("\x0")
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
@@ -19,5 +16,9 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.6"
-  spec.add_development_dependency "rake"
+  spec.add_development_dependency "rspec"
+  spec.add_development_dependency "simplecov"
+  spec.add_development_dependency "rack-test"
+  spec.add_development_dependency "pry"
+  spec.add_runtime_dependency "rack"
 end
