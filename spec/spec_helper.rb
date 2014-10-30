@@ -4,5 +4,5 @@ require 'rspec'
 require 'simplecov'
 SimpleCov.start
 
-Rspec.configure do |config|
+RSpec.configure do |config|
 end
