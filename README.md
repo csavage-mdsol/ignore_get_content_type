@@ -1,6 +1,15 @@
 # IgnoreGetContentType
 
-TODO: Write a gem description
+
+IgnoreGetContentType is a small piece of middleware that enables the consuming application
+to ignore the content-type set on GET requests. 
+Since GET requests are not expected to have a body, content-type isn't relevant.
+
+It helps with overcoming a limitation with ParamsWrapper wrap_parameter config that unexpectedly adds an empty 
+resource key for GETs if content-type is set in the request which otherwise accepts query parameters.
+Please see: http://grokbase.com/t/gg/rubyonrails-talk/134jyh7x92/rails-request-with-content-type-application-json-add-extra-parameter
+for reference.
+
 
 ## Installation
 
@@ -18,7 +27,12 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Example:
+
+```
+require 'rack/ignore_get_content_type'
+config.middleware.use Rack::IgnoreGetContentType
+```
 
 ## Contributing
 
