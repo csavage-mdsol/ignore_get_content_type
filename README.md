@@ -30,7 +30,7 @@ Or install it yourself as:
 Example:
 
 ```
-require 'rack/ignore_get_content_type'
+require 'ignore_get_content_type'
 config.middleware.use Rack::IgnoreGetContentType
 ```
 
