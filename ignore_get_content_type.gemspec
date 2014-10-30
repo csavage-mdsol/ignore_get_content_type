@@ -6,8 +6,8 @@ require 'ignore_get_content_type/version'
 Gem::Specification.new do |spec|
   spec.name          = "ignore_get_content_type"
   spec.version       = Rack::IgnoreGetContentTypeVersion::VERSION
-  spec.authors       = ["Connor Savage"]
-  spec.email         = ["csavage@mdsol.com"]
+  spec.authors       = ["Connor Savage", "Purnima Mavinkurve"]
+  spec.email         = ["csavage@mdsol.com", "pmavinkurve@mdsol.com"]
   spec.summary       = %q{A short piece of middleware to ignore content type set on GET requests}
 
   spec.files         = `git ls-files -z`.split("\x0")
