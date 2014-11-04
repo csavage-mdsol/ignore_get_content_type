@@ -2,14 +2,22 @@
 
 
 IgnoreGetContentType is a small piece of middleware that enables the consuming application
-to ignore the content-type set on GET requests. 
-Since GET requests are not expected to have a body, content-type isn't relevant.
+to ignore Content-Type header on GET requests. 
 
-It helps with overcoming a limitation with ParamsWrapper wrap_parameter config that unexpectedly adds an empty 
-resource key for GETs if content-type is set in the request which otherwise accepts query parameters.
+The Content-Type header field is used to specify the nature of the data in the body of a request. 
+According to the HTTP spec it is perfectly valid for a GET request to have a body. However, 
+server semantics require that if there is a body in a GET request, it must have no semantic 
+meaning to the request.
+
+In other words, a requester may send a body with a GET request, but the server is forbidden 
+to do anything with it. Therefore the Content-Type header in a GET request may be safely 
+ignored, as it specifies the language of a book you are never going to read!
+
+Additional benefit of ignoring Content-Type header on GETs is that it helps with overcoming 
+a peculiar limitation of ParamsWrapper's wrap_parameter configuration that unexpectedly adds 
+an empty resource key in presence of Content-Type for GETs that accept query parameters.
 Please see: http://grokbase.com/t/gg/rubyonrails-talk/134jyh7x92/rails-request-with-content-type-application-json-add-extra-parameter
 for reference.
-
 
 ## Installation
 
